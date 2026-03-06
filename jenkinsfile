@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
 
@@ -11,6 +10,18 @@ pipeline {
 		stage('clean package'){
 		steps{
 		   sh 'mvn clean package'
+		}
+		}
+		stage('docker_build'){
+		
+		steps{
+		     sh 'docker build -t imag1 .'
+		}
+		}
+		stage('docker_run'){
+		
+		steps{
+		     sh 'docker run -itd --name cont1 -p 8085:8080 imag1'
 		}
 		}
     }
