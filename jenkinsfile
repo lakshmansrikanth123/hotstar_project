@@ -6,7 +6,7 @@ maven'mymave'
     stages {
         stage('checkout') {
             steps {
-                https://github.com/lakshmansrikanth123/hotstar_project.git
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/lakshmansrikanth123/hotstar_project.git']])
             }
         }
 		stage('clean package'){
